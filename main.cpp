@@ -3,44 +3,86 @@
 #include<math.h>>
 #define PI 3.14159265358979323846
 
-GLfloat i = 0.0f;
-void Idle()
-{
-glutPostRedisplay();//// marks the current window as needing to be redisplayed
-}
 
-
-GLfloat position = 0.0f;
-GLfloat speed = 0.01f;
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+                              ///car
 
 GLfloat position1 = 0.0f;
-GLfloat speed1 = 0.02f;
+GLfloat speed1 = 0.1f;
 
-void update(int value)
+void update1(int value1)// For cloud
+{
+if(position1>1.0)
+position1=-1.0f;
+
+
+
+position1 +=speed1;
+glutPostRedisplay();
+
+glutTimerFunc(150,update1,0);
+
+}
+//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+GLfloat position2 = 0.0f;
+GLfloat speed2 = 0.1f;
+
+void update2(int value2)// For cloud
+{
+if(position2<-1.0)
+position2=1.0f;
+
+position2 -=speed2;
+glutPostRedisplay();
+
+glutTimerFunc(150,update2,0);
+
+}
+
+///////////////////////////////////////////////////////////
+///CLOUDS
+GLfloat position3 = 0.0f;
+GLfloat speed3 = 0.01f;
+
+GLfloat position4 = 0.0f;
+GLfloat speed4 = 0.02f;
+
+///////////////////////////////////
+
+/// for CLOUDS
+
+//////////////////
+
+void update3(int value3)
 {
 
-    if(position <-1.0)
-        position = 1.0f;
+    if(position3 <-1.0)
+        position3 = 1.0f;
 
-    position -= speed;
-
-	glutPostRedisplay();
-
-
-	glutTimerFunc(100, update, 0);
-}
-void update1(int value) {
-
-    if(position1 <-1.0)
-        position1 = 1.0f;
-
-    position1 -= speed1;
+    position3 -= speed3;
 
 	glutPostRedisplay();
 
 
-	glutTimerFunc(100, update1, 0);
+	glutTimerFunc(100, update3, 0);
 }
+
+void update4(int value4) {
+
+    if(position4 <-1.0)
+        position4 = 1.0f;
+
+    position4 -= speed4;
+
+	glutPostRedisplay();
+
+
+	glutTimerFunc(100, update4, 0);
+}
+////////////////////////////////////////
 
 
 
@@ -1089,7 +1131,7 @@ glEnd();
 ///CLOUDS 1
 
 glPushMatrix();
-glTranslatef(position,0.0f, 0.0f);
+glTranslatef(position3,0.0f, 0.0f);
 
 GLfloat x_3 =0.0; GLfloat y_3 =0.80; GLfloat radius_3 =0.10;
 
@@ -1149,7 +1191,7 @@ glPopMatrix();
 /// CLOUDS 2
 
 glPushMatrix();
-glTranslatef(position1,.0f, 0.0f);
+glTranslatef(position4,.0f, 0.0f);
 
 GLfloat x_7 =0.0; GLfloat y_7 =0.80; GLfloat radius_7 =0.10;
 
@@ -1264,6 +1306,235 @@ y_14 + (radius_14 * sin(i * twicePi / triangleAmount))
 glEnd();
 
 
+////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/// car 2
+
+ glLoadIdentity();
+ glPushMatrix();
+ glTranslatef(position2,0.0f, 0.0f);
+
+   glBegin(GL_QUADS);
+      glColor3ub(105,53,156);
+      glVertex2f(-0.13f, -0.50f);
+      glVertex2f( 0.12f, -0.50f);
+      glVertex2f( 0.12f,  -0.65f);
+      glVertex2f(-0.13f,  -0.65f);
+     glEnd();
+
+
+     glBegin(GL_QUADS);
+     glColor3ub(105,53,156);
+      glVertex2f(-0.13f, -0.50f);
+      glVertex2f(0.02f, -0.50f);
+      glVertex2f(0.02f,  -0.40f);
+      glVertex2f(-0.13f,  -0.40f);
+
+      glEnd();
+
+
+   glBegin(GL_QUADS);
+      glColor3ub(230,232,250);
+      glVertex2f(-0.11f, -0.49f);
+      glVertex2f( -0.03f, -0.49f);
+      glVertex2f( -0.03f,  -0.42f);
+      glVertex2f(-0.11f,  -0.42f);
+
+   glEnd();
+
+
+GLfloat x_15 =-0.07; GLfloat y_15= -0.65; GLfloat radius_15 =-0.04;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_15 , y_15); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_15 + (radius_15 * cos(i * twicePi / triangleAmount)),
+y_15 + (radius_15 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+GLfloat x_16 =0.07; GLfloat y_16= -0.65; GLfloat radius_16 =-0.04;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_16 , y_16); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_16 + (radius_16* cos(i * twicePi / triangleAmount)),
+y_16 + (radius_16 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+glPopMatrix();
+
+/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+///car
+glLoadIdentity();
+glPushMatrix();
+ glTranslatef(position1,0.0f, 0.0f);
+   glBegin(GL_QUADS);
+      glColor3ub(0,139,139);
+      glVertex2f(-0.15f, -0.85f);
+      glVertex2f( 0.15f, -0.85f);
+      glVertex2f( 0.15f,  -0.65f);
+      glVertex2f(-0.15f,  -0.65f);
+      glEnd();
+
+      GLfloat x_17 =-0.08; GLfloat y_17= -0.84; GLfloat radius_17 =-0.05;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_17 , y_17); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_17+ (radius_17 * cos(i * twicePi / triangleAmount)),
+y_17 + (radius_17 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+ GLfloat x_18 =-0.082; GLfloat y_18= -0.84; GLfloat radius_18 =-0.04;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(255,255,255);
+glVertex2f(x_18 , y_18); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_18 + (radius_18 * cos(i * twicePi / triangleAmount)),
+y_18 + (radius_18 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+
+ GLfloat x_19 =-0.082; GLfloat y_19= -0.84; GLfloat radius_19 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_19 , y_19); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_19 + (radius_19 * cos(i * twicePi / triangleAmount)),
+y_19 + (radius_19 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+
+GLfloat x_20 =-0.02; GLfloat y_20 = -0.595; GLfloat radius_20 =0.14;
+
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3ub(0,139,139);
+glVertex2f(x_20 , y_20); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_20  + (radius_20 * cos(i * twicePi / triangleAmount)),
+y_20 + (radius_20 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+
+
+
+
+GLfloat x_21 =0.08; GLfloat y_21= -0.74; GLfloat radius_21 =0.12;
+
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3ub(0,139,139);
+glVertex2f(x_21 , y_21); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_21 + (radius_21 * cos(i * twicePi / triangleAmount)),
+y_21 + (radius_21 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+GLfloat x_22 =-0.02; GLfloat y_22= -0.62; GLfloat radius_22 =0.10;
+
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3ub(255,255,255);
+glVertex2f(x_22 , y_22); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_22  + (radius_22 * cos(i * twicePi / triangleAmount)),
+y_22 + (radius_22 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+glBegin(GL_QUADS);
+      glColor3ub(0,139,139);
+      glVertex2f(-0.15f, -0.80f);
+      glVertex2f( 0.15f, -0.80f);
+      glVertex2f( 0.15f,  -0.65f);
+      glVertex2f(-0.15f,  -0.65f);
+      glEnd();
+
+      glEnd();
+     glBegin(GL_QUADS);
+      glColor3ub(0,139,139);
+      glVertex2f(-0.03f, -0.80f);
+      glVertex2f( 0.0f, -0.80f);
+      glVertex2f( 0.0f,  -0.52f);
+      glVertex2f(-0.03f,  -0.52f);
+      glEnd();
+
+
+
+      GLfloat x_23 =0.08; GLfloat y_23= -0.84; GLfloat radius_23 =-0.05;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_23, y_23); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_23 + (radius_23 * cos(i * twicePi / triangleAmount)),
+y_23 + (radius_23 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+ GLfloat x_24 =0.082; GLfloat y_24= -0.84; GLfloat radius_24 =-0.04;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(255,255,255);
+glVertex2f(x_24 , y_24); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_24 + (radius_24 * cos(i * twicePi / triangleAmount)),
+y_24 + (radius_24 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+
+ GLfloat x_25 =0.082; GLfloat y_25= -0.84; GLfloat radius_25 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_25 , y_25); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_25 + (radius_25 * cos(i * twicePi / triangleAmount)),
+y_25 + (radius_25 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+glPopMatrix();
+
+
+
+
+
 
 
     glFlush();
@@ -1278,8 +1549,11 @@ int main(int argc, char** argv) {
     glutPositionWindow(350,200);
     glutDisplayFunc(display);
     glutMouseFunc(handleMouse);
-    glutTimerFunc(100, update, 0);
     glutTimerFunc(100, update1, 0);
+    glutTimerFunc(100, update2, 0);
+    glutTimerFunc(100, update3, 0);
+    glutTimerFunc(100, update4, 0);
+
     glutMainLoop();
     return 0;
 }
