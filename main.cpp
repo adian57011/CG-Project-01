@@ -1540,6 +1540,9 @@ glPopMatrix();
 ////////////////////////////////////////////////////////////////
 
                                           ///night mood
+                                          ///night mood
+                                          ///night mood
+                                          ///night mood
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1575,7 +1578,7 @@ glBegin(GL_QUADS); ///ground 1
     glEnd();
 
      glBegin(GL_QUADS); ///ground 2
-	glColor3ub(142, 180, 107);
+	glColor3ub(127, 127, 127);
 	glVertex2f(-1.0f,-0.65f);
 	glVertex2f(1.0f, -0.65f);
 	glVertex2f(1.0f,-0.40f);
@@ -1594,10 +1597,10 @@ glBegin(GL_QUADS); ///ground 1
 
     glBegin(GL_QUADS); ///road 2 white
 	glColor3ub(241, 241, 241);
-	glVertex2f(-1.0f,-0.25f);
-	glVertex2f(1.0f, -0.25f);
-	glVertex2f(1.0f,-0.27f);
-	glVertex2f(-1.0f,-0.27f);
+	glVertex2f(-1.0f,-0.30f);
+	glVertex2f(1.0f, -0.30f);
+	glVertex2f(1.0f,-0.35f);
+	glVertex2f(-1.0f,-0.35f);
     glEnd();
 
 
@@ -2795,7 +2798,55 @@ glEnd();
 glPopMatrix();
 //////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////
+///car
+glLoadIdentity();
+glPushMatrix();
+ glTranslatef(position1,0.0f, 0.0f);
+    glBegin(GL_QUADS);
+      glColor3ub(138,51,36);
+      glVertex2f(-0.13f, -0.50f);
+      glVertex2f( 0.12f, -0.50f);
+      glVertex2f( 0.12f,  -0.60f);
+      glVertex2f(-0.13f,  -0.60f);
 
+
+
+      glColor3ub(233,116,81);
+      glVertex2f(-0.10f, -0.50f);
+      glVertex2f( 0.09f, -0.50f);
+      glVertex2f( 0.06f,  -0.45f);
+      glVertex2f(-0.05f,  -0.45f);
+
+
+
+   glEnd();
+GLfloat x_17 =-0.07; GLfloat y_17= -0.60; GLfloat radius_17 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_17 , y_17); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_17 + (radius_17 * cos(i * twicePi / triangleAmount)),
+y_17 + (radius_17 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+GLfloat x_18 =0.05; GLfloat y_18= -0.60; GLfloat radius_18 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_18 , y_18); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_18 + (radius_18 * cos(i * twicePi / triangleAmount)),
+y_18 + (radius_18 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+glPopMatrix();
 
 
 
@@ -2863,166 +2914,6 @@ glEnd();
 glPopMatrix();
 
 /////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-///car
-glLoadIdentity();
-glPushMatrix();
- glTranslatef(position1,0.0f, 0.0f);
-   glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.15f, -0.85f);
-      glVertex2f( 0.15f, -0.85f);
-      glVertex2f( 0.15f,  -0.65f);
-      glVertex2f(-0.15f,  -0.65f);
-      glEnd();
-
-      GLfloat x_17 =-0.08; GLfloat y_17= -0.84; GLfloat radius_17 =-0.05;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_17 , y_17); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_17+ (radius_17 * cos(i * twicePi / triangleAmount)),
-y_17 + (radius_17 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
- GLfloat x_18 =-0.082; GLfloat y_18= -0.84; GLfloat radius_18 =-0.04;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(255,255,255);
-glVertex2f(x_18 , y_18); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_18 + (radius_18 * cos(i * twicePi / triangleAmount)),
-y_18 + (radius_18 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
- GLfloat x_19 =-0.082; GLfloat y_19= -0.84; GLfloat radius_19 =-0.03;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_19 , y_19); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_19 + (radius_19 * cos(i * twicePi / triangleAmount)),
-y_19 + (radius_19 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
-GLfloat x_20 =-0.02; GLfloat y_20 = -0.595; GLfloat radius_20 =0.14;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(0,139,139);
-glVertex2f(x_20 , y_20); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_20  + (radius_20 * cos(i * twicePi / triangleAmount)),
-y_20 + (radius_20 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
-
-
-
-GLfloat x_21 =0.08; GLfloat y_21= -0.74; GLfloat radius_21 =0.12;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(0,139,139);
-glVertex2f(x_21 , y_21); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_21 + (radius_21 * cos(i * twicePi / triangleAmount)),
-y_21 + (radius_21 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-GLfloat x_22 =-0.02; GLfloat y_22= -0.62; GLfloat radius_22 =0.10;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(255,255,255);
-glVertex2f(x_22 , y_22); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_22  + (radius_22 * cos(i * twicePi / triangleAmount)),
-y_22 + (radius_22 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.15f, -0.80f);
-      glVertex2f( 0.15f, -0.80f);
-      glVertex2f( 0.15f,  -0.65f);
-      glVertex2f(-0.15f,  -0.65f);
-      glEnd();
-
-      glEnd();
-     glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.03f, -0.80f);
-      glVertex2f( 0.0f, -0.80f);
-      glVertex2f( 0.0f,  -0.52f);
-      glVertex2f(-0.03f,  -0.52f);
-      glEnd();
-
-
-
-      GLfloat x_23 =0.08; GLfloat y_23= -0.84; GLfloat radius_23 =-0.05;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_23, y_23); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_23 + (radius_23 * cos(i * twicePi / triangleAmount)),
-y_23 + (radius_23 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
- GLfloat x_24 =0.082; GLfloat y_24= -0.84; GLfloat radius_24 =-0.04;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(255,255,255);
-glVertex2f(x_24 , y_24); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_24 + (radius_24 * cos(i * twicePi / triangleAmount)),
-y_24 + (radius_24 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
- GLfloat x_25 =0.082; GLfloat y_25= -0.84; GLfloat radius_25 =-0.03;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_25 , y_25); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_25 + (radius_25 * cos(i * twicePi / triangleAmount)),
-y_25 + (radius_25 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-glPopMatrix();
-
 
 
 
@@ -3035,7 +2926,6 @@ glPopMatrix();
                                   ///Day mood
                                   ///Day mood
                                   ///Day mood
-
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -3072,8 +2962,8 @@ glBegin(GL_QUADS); ///ground 1
 	glVertex2f(-1.0f,-0.75f);
     glEnd();
 
-     glBegin(GL_QUADS); ///ground 2
-	glColor3ub(142, 180, 107);
+     glBegin(GL_QUADS); ///rood
+	glColor3ub(127, 127, 127);
 	glVertex2f(-1.0f,-0.65f);
 	glVertex2f(1.0f, -0.65f);
 	glVertex2f(1.0f,-0.40f);
@@ -3092,10 +2982,10 @@ glBegin(GL_QUADS); ///ground 1
 
     glBegin(GL_QUADS); ///road 2 white
 	glColor3ub(241, 241, 241);
-	glVertex2f(-1.0f,-0.25f);
-	glVertex2f(1.0f, -0.25f);
-	glVertex2f(1.0f,-0.27f);
-	glVertex2f(-1.0f,-0.27f);
+	glVertex2f(-1.0f,-0.30f);
+	glVertex2f(1.0f, -0.30f);
+	glVertex2f(1.0f,-0.35f);
+	glVertex2f(-1.0f,-0.35f);
     glEnd();
 
 
@@ -4261,6 +4151,67 @@ glPopMatrix();
 
 
 ////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////
+///car
+glLoadIdentity();
+glPushMatrix();
+ glTranslatef(position1,0.0f, 0.0f);
+    glBegin(GL_QUADS);
+      glColor3ub(138,51,36);
+      glVertex2f(-0.13f, -0.50f);
+      glVertex2f( 0.12f, -0.50f);
+      glVertex2f( 0.12f,  -0.60f);
+      glVertex2f(-0.13f,  -0.60f);
+
+
+
+      glColor3ub(233,116,81);
+      glVertex2f(-0.10f, -0.50f);
+      glVertex2f( 0.09f, -0.50f);
+      glVertex2f( 0.06f,  -0.45f);
+      glVertex2f(-0.05f,  -0.45f);
+
+
+
+   glEnd();
+GLfloat x_17 =-0.07; GLfloat y_17= -0.60; GLfloat radius_17 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_17 , y_17); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_17 + (radius_17 * cos(i * twicePi / triangleAmount)),
+y_17 + (radius_17 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+
+GLfloat x_18 =0.05; GLfloat y_18= -0.60; GLfloat radius_18 =-0.03;
+
+glBegin(GL_TRIANGLE_FAN);//chaka1
+glColor3f(0,0,0);
+glVertex2f(x_18 , y_18); // center of circle
+for(int i = 0; i <= triangleAmount;i++) {
+glVertex2f(
+x_18 + (radius_18 * cos(i * twicePi / triangleAmount)),
+y_18 + (radius_18 * sin(i * twicePi / triangleAmount))
+);
+}
+glEnd();
+glPopMatrix();
+
+
+
+
+
+
+
+
+
+
+
 /////////////////////////////////////////////////
 /// car 2
 
@@ -4325,165 +4276,6 @@ glEnd();
 glPopMatrix();
 
 /////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-///car
-glLoadIdentity();
-glPushMatrix();
- glTranslatef(position1,0.0f, 0.0f);
-   glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.15f, -0.85f);
-      glVertex2f( 0.15f, -0.85f);
-      glVertex2f( 0.15f,  -0.65f);
-      glVertex2f(-0.15f,  -0.65f);
-      glEnd();
-
-      GLfloat x_17 =-0.08; GLfloat y_17= -0.84; GLfloat radius_17 =-0.05;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_17 , y_17); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_17+ (radius_17 * cos(i * twicePi / triangleAmount)),
-y_17 + (radius_17 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
- GLfloat x_18 =-0.082; GLfloat y_18= -0.84; GLfloat radius_18 =-0.04;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(255,255,255);
-glVertex2f(x_18 , y_18); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_18 + (radius_18 * cos(i * twicePi / triangleAmount)),
-y_18 + (radius_18 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
- GLfloat x_19 =-0.082; GLfloat y_19= -0.84; GLfloat radius_19 =-0.03;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_19 , y_19); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_19 + (radius_19 * cos(i * twicePi / triangleAmount)),
-y_19 + (radius_19 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
-GLfloat x_20 =-0.02; GLfloat y_20 = -0.595; GLfloat radius_20 =0.14;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(0,139,139);
-glVertex2f(x_20 , y_20); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_20  + (radius_20 * cos(i * twicePi / triangleAmount)),
-y_20 + (radius_20 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
-
-
-
-GLfloat x_21 =0.08; GLfloat y_21= -0.74; GLfloat radius_21 =0.12;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(0,139,139);
-glVertex2f(x_21 , y_21); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_21 + (radius_21 * cos(i * twicePi / triangleAmount)),
-y_21 + (radius_21 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-GLfloat x_22 =-0.02; GLfloat y_22= -0.62; GLfloat radius_22 =0.10;
-
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3ub(255,255,255);
-glVertex2f(x_22 , y_22); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_22  + (radius_22 * cos(i * twicePi / triangleAmount)),
-y_22 + (radius_22 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.15f, -0.80f);
-      glVertex2f( 0.15f, -0.80f);
-      glVertex2f( 0.15f,  -0.65f);
-      glVertex2f(-0.15f,  -0.65f);
-      glEnd();
-
-      glEnd();
-     glBegin(GL_QUADS);
-      glColor3ub(0,139,139);
-      glVertex2f(-0.03f, -0.80f);
-      glVertex2f( 0.0f, -0.80f);
-      glVertex2f( 0.0f,  -0.52f);
-      glVertex2f(-0.03f,  -0.52f);
-      glEnd();
-
-
-
-      GLfloat x_23 =0.08; GLfloat y_23= -0.84; GLfloat radius_23 =-0.05;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_23, y_23); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_23 + (radius_23 * cos(i * twicePi / triangleAmount)),
-y_23 + (radius_23 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
- GLfloat x_24 =0.082; GLfloat y_24= -0.84; GLfloat radius_24 =-0.04;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(255,255,255);
-glVertex2f(x_24 , y_24); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_24 + (radius_24 * cos(i * twicePi / triangleAmount)),
-y_24 + (radius_24 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-
- GLfloat x_25 =0.082; GLfloat y_25= -0.84; GLfloat radius_25 =-0.03;
-
-glBegin(GL_TRIANGLE_FAN);//chaka1
-glColor3f(0,0,0);
-glVertex2f(x_25 , y_25); // center of circle
-for(int i = 0; i <= triangleAmount;i++) {
-glVertex2f(
-x_25 + (radius_25 * cos(i * twicePi / triangleAmount)),
-y_25 + (radius_25 * sin(i * twicePi / triangleAmount))
-);
-}
-glEnd();
-
-glPopMatrix();
 
 
 
